@@ -1,0 +1,18 @@
+@if (travelPlan) {
+  <div>
+    <h2>{{ travelPlan.destination }}</h2>
+
+    @for (day of travelPlan.days; track day.day) {
+      <div>
+        <h3>Day {{ day.day }}</h3>
+
+        <p><strong>Places:</strong> {{ day.places.join(', ') }}</p>
+        <p><strong>Activity:</strong> {{ day.activity }}</p>
+        <p><strong>Food:</strong> {{ day.food }}</p>
+        <p><strong>Estimated Cost:</strong> ₹{{ day.estimatedCost }}</p>
+      </div>
+    }
+
+    <h3>Total Estimated Cost: ₹{{ travelPlan.totalEstimatedCost }}</h3>
+  </div>
+}
