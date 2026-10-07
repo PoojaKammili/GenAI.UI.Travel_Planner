@@ -1,59 +1,108 @@
-# TravelPlannerUi
+# AI Travel Planner UI
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.4.
+Angular frontend for the AI Travel Planner application. It allows users to enter travel preferences and view an AI-generated travel plan.
 
-## Development server
+## Tech Stack
 
-To start a local development server, run:
+* Angular
+* TypeScript
+* HTML
+* CSS
+* Reactive Forms
+* HttpClient
+* RxJS
+
+## Project Structure
+
+```text
+travel-planner-ui
+│
+└── src
+    └── app
+        ├── components
+        │   ├── travel-planner
+        │   │   ├── travel-planner.ts
+        │   │   ├── travel-planner.html
+        │   │   └── travel-planner.css
+        │   │
+        │   └── travel-result
+        │       ├── travel-result.ts
+        │       ├── travel-result.html
+        │       └── travel-result.css
+        │
+        ├── interfaces
+        │   ├── travel-request.ts
+        │   ├── travel-plan.ts
+        │   └── travel-day.ts
+        │
+        ├── services
+        │   └── travel.service.ts
+        │
+        ├── app.routes.ts
+        └── app.config.ts
+```
+
+## Application Flow
+
+```text
+User
+  ↓
+TravelPlanner Component
+  ↓
+TravelService
+  ↓
+HttpClient
+  ↓
+.NET Web API
+  ↓
+Ollama / Llama 3.2
+  ↓
+Travel Plan Response
+  ↓
+BehaviorSubject
+  ↓
+TravelResult Component
+  ↓
+Display Travel Plan
+```
+
+## Features
+
+* Reactive travel form with validation
+* Destination, days, budget, and interests input
+* REST API integration using HttpClient
+* Strongly typed TypeScript interfaces
+* Angular routing
+* BehaviorSubject for sharing travel plan data
+* Separate travel input and result pages
+* Day-wise travel plan display
+* Responsive UI
+
+## Routes
+
+| Route     | Component     | Purpose                       |
+| --------- | ------------- | ----------------------------- |
+| `/travel` | TravelPlanner | Enter travel preferences      |
+| `/plan`   | TravelResult  | Display generated travel plan |
+
+## How to Run
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the Angular application:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```text
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+To generate a travel plan, make sure the .NET Web API and Ollama with Llama 3.2 are also running.
