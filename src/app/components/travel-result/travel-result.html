@@ -1,18 +1,48 @@
-@if (travelPlan) {
-  <div>
-    <h2>{{ travelPlan.destination }}</h2>
+<div class="page">
 
-    @for (day of travelPlan.days; track day.day) {
-      <div>
-        <h3>Day {{ day.day }}</h3>
+  @if (travelPlan) {
 
-        <p><strong>Places:</strong> {{ day.places.join(', ') }}</p>
-        <p><strong>Activity:</strong> {{ day.activity }}</p>
-        <p><strong>Food:</strong> {{ day.food }}</p>
-        <p><strong>Estimated Cost:</strong> ₹{{ day.estimatedCost }}</p>
+    <div class="result-container">
+
+      <h1>🗺️ {{ travelPlan.destination }} Travel Plan</h1>
+
+      @for (day of travelPlan.days; track day.day) {
+
+        <div class="day-card">
+
+          <h2>Day {{ day.day }}</h2>
+
+          <p>
+            <strong>📍 Places:</strong>
+            {{ day.places.join(', ') }}
+          </p>
+
+          <p>
+            <strong>🎯 Activity:</strong>
+            {{ day.activity }}
+          </p>
+
+          <p>
+            <strong>🍴 Food:</strong>
+            {{ day.food }}
+          </p>
+
+          <p>
+            <strong>💰 Estimated Cost:</strong>
+            ₹{{ day.estimatedCost }}
+          </p>
+
+        </div>
+
+      }
+
+      <div class="total">
+        <strong>Total Estimated Cost:</strong>
+        ₹{{ travelPlan.totalEstimatedCost }}
       </div>
-    }
 
-    <h3>Total Estimated Cost: ₹{{ travelPlan.totalEstimatedCost }}</h3>
-  </div>
-}
+    </div>
+
+  }
+
+</div>

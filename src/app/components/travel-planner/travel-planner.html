@@ -1,55 +1,59 @@
-<div>
-  <h1>AI Travel Planner</h1>
+<div class="page">
+  <div class="card">
 
-  <form [formGroup]="travelForm" (ngSubmit)="onSubmit()">
+    <h1>✈️ AI Travel Planner</h1>
+    <p class="subtitle">Create your personalized travel plan</p>
 
-    <label>Destination</label>
-    <input type="text" formControlName="destination">
-    @if(travelForm.get('destination')?.touched && travelForm.get('destination')?.errors?.['required']){
-      <div class="error">Destination is required</div>
-    }
-      
-    <br>
-    <br>
+    <form [formGroup]="travelForm" (ngSubmit)="onSubmit()">
 
-    <label>Number of Days</label>
-    <input type="number" formControlName="days">
-    @if(travelForm.get('days')?.touched && travelForm.get('days')?.errors?.['required']){
-      <div class="error">Number of days is required</div>
-    }
-    @if(travelForm.get('days')?.touched && travelForm.get('days')?.errors?.['min']){
-      <div class="error">Number of days must be at least 1</div>
-    }
-    
-     <br>
-    <br>
+      <label>Destination</label>
+      <input type="text" formControlName="destination" placeholder="e.g. Goa">
 
-    <label>Budget</label>
-    <input type="number" formControlName="budget">
-    @if(travelForm.get('budget')?.touched && travelForm.get('budget')?.errors?.['required']){
-      <div class="error">Budget is required</div>
-    }
-    @if(travelForm.get('budget')?.touched && travelForm.get('budget')?.errors?.['min']){
-      <div class="error">Budget must be at least 1</div>
-    }
-  
+      @if(travelForm.get('destination')?.touched &&
+          travelForm.get('destination')?.errors?.['required']) {
+        <div class="error">Destination is required</div>
+      }
 
-     <br>
-    <br>
+      <label>Number of Days</label>
+      <input type="number" formControlName="days" min="1">
 
+      @if(travelForm.get('days')?.touched &&
+          travelForm.get('days')?.errors?.['required']) {
+        <div class="error">Number of days is required</div>
+      }
 
-    <label>Interests</label>
-    <input type="text" formControlName="interests">
-    @if(travelForm.get('interests')?.touched && travelForm.get('interests')?.errors?.['required']){
-      <div class="error">Interests are required</div>
-    }
+      @if(travelForm.get('days')?.touched &&
+          travelForm.get('days')?.errors?.['min']) {
+        <div class="error">Number of days must be at least 1</div>
+      }
 
-     <br>
-    <br>
-    
-    <button type="submit" [disabled]="travelForm.invalid">Generate Plan</button>
+      <label>Budget</label>
+      <input type="number" formControlName="budget" min="1" placeholder="e.g. 10000">
 
-  </form>
+      @if(travelForm.get('budget')?.touched &&
+          travelForm.get('budget')?.errors?.['required']) {
+        <div class="error">Budget is required</div>
+      }
+
+      @if(travelForm.get('budget')?.touched &&
+          travelForm.get('budget')?.errors?.['min']) {
+        <div class="error">Budget must be at least 1</div>
+      }
+
+      <label>Interests</label>
+      <input type="text" formControlName="interests"
+             placeholder="e.g. Beaches, Food, Temples">
+
+      @if(travelForm.get('interests')?.touched &&
+          travelForm.get('interests')?.errors?.['required']) {
+        <div class="error">Interests are required</div>
+      }
+
+      <button type="submit" [disabled]="travelForm.invalid">
+        Generate Travel Plan
+      </button>
+
+    </form>
+  </div>
 </div>
-
 
