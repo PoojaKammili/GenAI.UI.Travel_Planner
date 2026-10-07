@@ -1,6 +1,6 @@
-## AI Travel Planner UI
+# AI Travel Planner UI
 
-Angular frontend for the AI Travel Planner application. It allows users to enter their travel preferences and view an AI-generated travel plan.
+Angular frontend for the AI Travel Planner application. It allows users to enter travel preferences and view an AI-generated travel plan.
 
 ## Tech Stack
 
@@ -14,6 +14,7 @@ Angular frontend for the AI Travel Planner application. It allows users to enter
 
 ## Project Structure
 
+```text
 travel-planner-ui
 │
 └── src
@@ -39,10 +40,11 @@ travel-planner-ui
         │
         ├── app.routes.ts
         └── app.config.ts
-
+```
 
 ## Application Flow
 
+```text
 User
   ↓
 TravelPlanner Component
@@ -62,7 +64,7 @@ BehaviorSubject
 TravelResult Component
   ↓
 Display Travel Plan
-
+```
 
 ## Features
 
@@ -74,7 +76,7 @@ Display Travel Plan
 * BehaviorSubject for sharing travel plan data
 * Separate travel input and result pages
 * Day-wise travel plan display
-* Simple responsive UI
+* Responsive UI
 
 ## Routes
 
@@ -86,11 +88,21 @@ Display Travel Plan
 ## How to Run
 
 Install dependencies:
+
+```bash
 npm install
+```
 
 Start the Angular application:
+
+```bash
 ng serve
+```
 
-## Open:
+Open:
+
+```text
 http://localhost:4200
+```
 
+To generate a travel plan, make sure the .NET Web API and Ollama with Llama 3.2 are also running.
