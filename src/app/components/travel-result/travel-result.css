@@ -1,0 +1,40 @@
+.page {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: #f4f6f8;
+  box-sizing: border-box;
+}
+
+.result-container {
+  max-width: 700px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.day-card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.day-card h2 {
+  margin-top: 0;
+}
+
+.day-card p {
+  margin: 12px 0;
+}
+
+.total {
+  background: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 18px;
+}
